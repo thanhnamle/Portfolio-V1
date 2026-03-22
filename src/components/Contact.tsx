@@ -11,7 +11,7 @@ const contactLinks = [
   },
   {
     label: "GitHub",
-    href: "https://github.com",
+    href: "https://github.com/thanhnamle",
     icon: Github,
     detail: "github.com/thanhnamle",
     external: true,
