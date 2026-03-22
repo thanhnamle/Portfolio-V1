@@ -5,22 +5,22 @@ import { useState } from "react";
 const contactLinks = [
   {
     label: "Email",
-    href: "mailto:lethanh.nam@email.com",
+    href: "mailto:thanhnam0810.tnl@gmail.com",
     icon: Mail,
-    detail: "lethanh.nam@email.com",
+    detail: "thanhnam0810.tnl@gmail.com",
   },
   {
     label: "GitHub",
     href: "https://github.com",
     icon: Github,
-    detail: "github.com/lethanhnam",
+    detail: "github.com/thanhnamle",
     external: true,
   },
   {
     label: "LinkedIn",
     href: "https://linkedin.com",
     icon: Linkedin,
-    detail: "linkedin.com/in/lethanhnam",
+    detail: "linkedin.com/in/namle123",
     external: true,
   },
 ];
@@ -34,7 +34,7 @@ const Contact = () => {
     e.preventDefault();
     const subject = encodeURIComponent(`Message from ${name}`);
     const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
-    window.location.href = `mailto:lethanh.nam@email.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:thanhnam0810.tnl@gmail.com?subject=${subject}&body=${body}`;
     setName("");
     setEmail("");
     setMessage("");
