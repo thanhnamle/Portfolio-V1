@@ -1,8 +1,8 @@
-# Personal Portfolio ✨
+# Personal Portfolio
 
 A modern, fast, and interactive personal portfolio built with React, Vite, and Tailwind CSS. Showcases projects, skills, and experience with a polished UI featuring beautiful animations, ambient backgrounds, and a seamless developer experience.
 
-## 🌟 Features
+## Features
 
 - **Modern Tech Stack:** React 18 + Vite for rapid development and optimized builds.
 - **Type-safe:** 100% written in TypeScript for robust and maintainable code.
@@ -17,7 +17,7 @@ A modern, fast, and interactive personal portfolio built with React, Vite, and T
   - Project Showcases and Skill Bars
   - Contact Forms with Validation (`react-hook-form` + `zod`)
 
-## 💻 Tech Stack
+## Tech Stack
 
 - **Framework:** [React 18](https://react.dev/) & [Vite](https://vitejs.dev/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
@@ -29,7 +29,7 @@ A modern, fast, and interactive personal portfolio built with React, Vite, and T
 - **State Management:** [React Query](https://tanstack.com/query/latest)
 - **Testing:** [Vitest](https://vitest.dev/) & React Testing Library
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine.
 
@@ -58,7 +58,7 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine (`v18` 
 4. **Open your browser:**
    Navigate to `http://localhost:8080` to see the portfolio live.
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 my-portfolio/
@@ -77,7 +77,7 @@ my-portfolio/
 └── tsconfig.json         # TypeScript configuration
 ```
 
-## 🛠️ Scripts
+## Scripts
 
 - `npm run dev` - Starts the development server.
 - `npm run build` - Builds the app for production.
@@ -86,15 +86,13 @@ my-portfolio/
 - `npm run test` - Runs Vitest tests.
 - `npm run lint` - Lints the codebase using ESLint.
 
-## 🤝 Contributing
+## Website
+  Explore my work in detail: [My Portfolio](https://portfolio-v1-lemon-rho.vercel.app/)
 
-Contributions, issues, and feature requests are welcome!
-Feel free to check out the [issues page](https://github.com/yourusername/my-portfolio/issues).
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-*Designed and developed by [Your Name](https://github.com/yourusername).*
+*Designed and developed by [Le Thanh Nam](https://github.com/thanhnamle).*
