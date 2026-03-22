@@ -86,6 +86,9 @@ my-portfolio/
 - `npm run test` - Runs Vitest tests.
 - `npm run lint` - Lints the codebase using ESLint.
 
+## Website
+  Explore my work in detail: [My Portfolio](https://portfolio-v1-lemon-rho.vercel.app/)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
