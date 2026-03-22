@@ -56,7 +56,7 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine (`v18` 
    ```
 
 4. **Open your browser:**
-   Navigate to `http://localhost:5173` to see the portfolio live.
+   Navigate to `http://localhost:8080` to see the portfolio live.
 
 ## 📂 Project Structure
 

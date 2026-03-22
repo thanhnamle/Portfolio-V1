@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  base: process.env.VITE_BASE_PATH || "/Portfolio-V1",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
