@@ -1,43 +1,42 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
-import projectTaskflow from "@/assets/project-taskflow.jpg";
-import projectDevblog from "@/assets/project-devblog.jpg";
-import projectWeather from "@/assets/project-weather.jpg";
+import projectAirbnb from "@/assets/project-airbnb.jpg";
+import projectTBRGS from "@/assets/project-tbrgs.png";
 import projectPortfolio from "@/assets/project-portfolio.jpg";
 
 const projects = [
   {
-    title: "TaskFlow",
+    title: "Full Stack Airbnb Clone",
     description:
-      "A minimal task management app with drag-and-drop, dark mode, and real-time sync.",
-    tech: ["React", "TypeScript", "Tailwind", "Firebase"],
+      "A comprehensive property rental platform modeled after Airbnb, featuring secure user authentication, dynamic property listings, an interactive booking system, and seamless payment integration.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
     github: "https://github.com",
     live: "https://example.com",
-    image: projectTaskflow,
+    image: projectAirbnb,
   },
   {
-    title: "DevBlog",
+    title: "Cybersecurity threat detection in banking",
     description:
-      "A markdown-powered blog with syntax highlighting, tags, and search functionality.",
-    tech: ["Next.js", "MDX", "Tailwind CSS"],
+      "A machine learning pipeline designed to identify transaction anomalies and potential security threats in banking operations using advanced data analytics and visualization techniques.",
+    tech: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
     github: "https://github.com",
     live: "https://example.com",
-    image: projectDevblog,
+    image: "",
   },
   {
-    title: "WeatherNow",
+    title: "Traffic-Based Route Guidance System (TBRGS)",
     description:
-      "A clean weather dashboard using OpenWeather API with location detection and forecasts.",
-    tech: ["React", "REST API", "CSS Modules"],
+      "An intelligent navigation system that calculates optimal travel routes based on real-time traffic data, factoring in intersection delays and speed limits for efficient guidance.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "REST API", "Algorithms"],
     github: "https://github.com",
-    image: projectWeather,
+    image: projectTBRGS,
   },
   {
     title: "Portfolio v1",
     description:
-      "Previous iteration of my personal portfolio built with vanilla HTML, CSS, and JavaScript.",
-    tech: ["HTML", "CSS", "JavaScript"],
+      "The first iteration of my professional portfolio, highlighting my early web development projects and interactive UI skills through modern frontend technologies.",
+    tech: ["HTML5", "CSS3", "Vanilla JavaScript"],
     github: "https://github.com",
     live: "https://example.com",
     image: projectPortfolio,

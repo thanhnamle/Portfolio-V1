@@ -80,7 +80,7 @@ const Splash = ({ onComplete }: SplashProps) => {
                 <motion.path
                   d={signaturePath}
                   stroke="hsl(var(--splash-foreground) / 0.35)"
-                  strokeWidth="1.5"
+                  strokeWidth="2.0"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   fill="none"
