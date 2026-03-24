@@ -3,7 +3,7 @@ import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
 import projectAirbnb from "@/assets/project-airbnb.jpg";
 import projectTBRGS from "@/assets/project-tbrgs.png";
-import projectPortfolio from "@/assets/project-portfolio.jpg";
+import projectPortfolio from "@/assets/project-portfolio.png";
 
 const projects = [
   {
