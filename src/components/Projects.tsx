@@ -19,7 +19,7 @@ const projects = [
     title: "Cybersecurity threat detection in banking",
     description:
       "A machine learning pipeline designed to identify transaction anomalies and potential security threats in banking operations using advanced data analytics and visualization techniques.",
-    tech: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+    tech: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
     github: "https://github.com",
     live: "https://example.com",
     image: "",
@@ -28,7 +28,7 @@ const projects = [
     title: "Traffic-Based Route Guidance System (TBRGS)",
     description:
       "An intelligent navigation system that calculates optimal travel routes based on real-time traffic data, factoring in intersection delays and speed limits for efficient guidance.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "REST API", "Algorithms"],
+    tech: ["Python", "React", "TypeScript", "Tailwind CSS", "REST API", "Algorithms"],
     github: "https://github.com",
     image: projectTBRGS,
   },
@@ -36,8 +36,8 @@ const projects = [
     title: "Portfolio v1",
     description:
       "The first iteration of my professional portfolio, highlighting my early web development projects and interactive UI skills through modern frontend technologies.",
-    tech: ["HTML5", "CSS3", "Vanilla JavaScript"],
-    github: "https://github.com",
+    tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/thanhnamle/Portfolio-V1",
     live: "https://example.com",
     image: projectPortfolio,
   },
@@ -127,7 +127,7 @@ const Projects = () => {
           {projects.map((project) => (
             <motion.div
               key={project.title}
-              className="group flex-shrink-0 w-[320px] sm:w-[380px] rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-[var(--card-hover-shadow)] hover:-translate-y-1 snap-start"
+              className="group flex-shrink-0 w-[350px] sm:w-[400px] rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-[var(--card-hover-shadow)] hover:-translate-y-1 snap-start"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >

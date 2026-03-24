@@ -32,7 +32,7 @@ const Hero = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Frontend Developer
+          Backend Developer
           <br />
           <span className="text-muted-foreground">&amp; CS Student</span>
         </motion.h1>
