@@ -31,15 +31,15 @@ const AboutMe = () => {
         >
           <p className="text-muted-foreground leading-relaxed text-base">
             Hi there! I'm <span className="text-foreground font-semibold">Le Thanh Nam</span>, 
-            a passionate Computer Science student with a deep love for building beautiful, 
-            functional web experiences. I enjoy turning complex problems into simple, 
-            intuitive designs.
+            a passionate Computer Science student with a deep love for building robust, 
+            scalable backend systems. I enjoy turning complex problems into simple, 
+            efficient solutions.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base">
-            My journey in web development started with curiosity and has grown into a 
+            My journey in software development started with curiosity and has grown into a 
             genuine passion for creating impactful digital products. I'm constantly learning 
-            new technologies and improving my craft, with a particular interest in frontend 
-            development and UI/UX design.
+            new technologies and improving my craft, with a particular interest in backend 
+            development and server-side architecture.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base">
             When I'm not coding, you can find me exploring new design trends, reading tech blogs, 
@@ -50,7 +50,7 @@ const AboutMe = () => {
           <div className="grid sm:grid-cols-3 gap-4 pt-4">
             {[
               { label: "Location", value: "Vietnam" },
-              { label: "Focus", value: "Frontend Dev" },
+              { label: "Focus", value: "Backend Dev" },
               { label: "Status", value: "Open to Work" },
             ].map((item) => (
               <div
