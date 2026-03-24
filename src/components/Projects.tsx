@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
 import projectAirbnb from "@/assets/project-airbnb.jpg";
+import projectCybersecurity from "@/assets/project-cybersecurity.png";
 import projectTBRGS from "@/assets/project-tbrgs.png";
 import projectPortfolio from "@/assets/project-portfolio.png";
 
@@ -22,7 +23,7 @@ const projects = [
     tech: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
     github: "https://github.com",
     live: "https://example.com",
-    image: "",
+    image: projectCybersecurity,
   },
   {
     title: "Traffic-Based Route Guidance System (TBRGS)",
