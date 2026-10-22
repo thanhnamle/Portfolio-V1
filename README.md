@@ -1,97 +1,50 @@
 # Personal Portfolio
 
-A modern, fast, and interactive personal portfolio built with React, Vite, and Tailwind CSS. Showcases projects, skills, and experience with a polished UI featuring beautiful animations, ambient backgrounds, and a seamless developer experience.
+Portfolio of **Le Thanh Nam** — a Computer Science student at Swinburne Vietnam focused on backend services and full-stack web apps.
 
-## Features
+Live site: [portfolio-v1-lemon-rho.vercel.app](https://portfolio-v1-lemon-rho.vercel.app/)
 
-- **Modern Tech Stack:** React 18 + Vite for rapid development and optimized builds.
-- **Type-safe:** 100% written in TypeScript for robust and maintainable code.
-- **Sleek Design:** Styled with Tailwind CSS and pre-built components from [shadcn/ui](https://ui.shadcn.com/).
-- **Smooth Animations:** Powered by Framer Motion for scroll effects, page transitions, and interactive elements.
-- **Dark Mode Ready:** Seamless theme switching integration with `next-themes`.
-- **Responsive Layout:** Looks perfect on all devices, from desktop wide-screens to mobile phones.
-- **Interactive UI Components:**
-  - Ambient Animated Backgrounds
-  - Splash Screen
-  - Scroll Progress Indicators
-  - Project Showcases and Skill Bars
-  - Contact Forms with Validation (`react-hook-form` + `zod`)
+## Design
 
-## Tech Stack
+- **Split sidebar** — profile, section navigation and contact links stay pinned on desktop; on mobile they become a profile card plus a sticky section switcher.
+- **Bento grid** — about, education, experience and projects are laid out as tiles of different sizes.
+- **System blueprint** — the tech stack is drawn as a request-flow diagram (client → API → services and data) instead of a list of badges.
+- Light and dark themes, keyboard focus styles, and `prefers-reduced-motion` support.
 
-- **Framework:** [React 18](https://react.dev/) & [Vite](https://vitejs.dev/)
-- **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components:** [shadcn/ui](https://ui.shadcn.com/) & [Radix Primitives](https://www.radix-ui.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Form Handling:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
-- **State Management:** [React Query](https://tanstack.com/query/latest)
-- **Testing:** [Vitest](https://vitest.dev/) & React Testing Library
+## Tech stack
 
-## Getting Started
+React 18 · TypeScript · Vite · Tailwind CSS · Framer Motion · Lucide icons · Vitest + Testing Library
 
-Follow these instructions to get a copy of the project up and running on your local machine.
+## Updating content
 
-### Prerequisites
+All content lives in [`src/data/profile.ts`](src/data/profile.ts): profile links, about text, timeline, the stack diagram and projects. Components read from it, so updates never require touching the UI code.
 
-Ensure you have [Node.js](https://nodejs.org/) installed on your machine (`v18` or later is recommended).
+- Optional links (`resumeUrl`, a project's `github` / `live`) are hidden when left empty.
+- To add a résumé, place the PDF in `public/` (e.g. `public/resume.pdf`) and set `resumeUrl: "/resume.pdf"`.
+- Project images go in `src/assets/` — WebP, about 1200px wide, keeps the page light.
 
-### Installation
+## Getting started
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/thanhnamle/Portfolio-V1.git
-   cd Portfolio-V1
-   ```
+Requires Node.js 18 or later.
 
-2. **Install the dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser:**
-   Navigate to `http://localhost:8080` to see the portfolio live.
-
-## Project Structure
-
-```text
-my-portfolio/
-├── public/               # Static assets (images, fonts)
-├── src/
-│   ├── assets/           # Project specific assets
-│   ├── components/       # Reusable React components (UI, layout, sections)
-│   ├── hooks/            # Custom React hooks
-│   ├── lib/              # Utility functions and configurations
-│   ├── pages/            # Page components
-│   ├── App.tsx           # Main application component
-│   └── main.tsx          # Application entry point
-├── package.json          # Project dependencies and scripts
-├── tailwind.config.ts    # Tailwind CSS configuration
-├── vite.config.ts        # Vite configuration
-└── tsconfig.json         # TypeScript configuration
+```bash
+git clone https://github.com/thanhnamle/Portfolio-V1.git
+cd Portfolio-V1
+npm install
+npm run dev        # http://localhost:8080
 ```
 
 ## Scripts
 
-- `npm run dev` - Starts the development server.
-- `npm run build` - Builds the app for production.
-- `npm run build:dev` - Builds the app for development environment.
-- `npm run preview` - Locally preview the production build.
-- `npm run test` - Runs Vitest tests.
-- `npm run lint` - Lints the codebase using ESLint.
+- `npm run dev` — start the dev server
+- `npm run build` — production build to `dist/`
+- `npm run preview` — preview the production build
+- `npm run test` — run the test suite
+- `npm run lint` — lint the codebase
 
-## Website
-  Explore my work in detail: [My Portfolio](https://portfolio-v1-lemon-rho.vercel.app/)
+## Deployment
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Deployed on Vercel at the domain root. For a sub-path host such as GitHub Pages, build with `VITE_BASE_PATH=/Portfolio-V1/`.
 
 ---
 
