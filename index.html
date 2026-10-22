@@ -2,18 +2,27 @@
 <html lang="en">
   <head>
     <script>
-      (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}})();
+      (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Le Thanh Nam - Portfolio</title>
+    <title>Le Thanh Nam — Backend &amp; Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Le Thanh Nam, a Computer Science student at Swinburne Vietnam building backend services and full-stack web apps. Open to backend and full-stack internships." />
     <meta name="author" content="Le Thanh Nam" />
+    <meta name="theme-color" content="#ECEEF2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B0D12" media="(prefers-color-scheme: dark)" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Le Thanh Nam - Portfolio" />
-    <meta property="og:description" content="Personal portfolio of Le Thanh Nam" />
+    <meta property="og:title" content="Le Thanh Nam — Backend &amp; Full-Stack Developer" />
+    <meta property="og:description" content="APIs, data systems and the web apps on top of them. Open to backend and full-stack internships." />
     <meta property="og:type" content="website" />
+    <!-- TODO: add og:image (1200x630) and og:url once the final domain is set -->
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
 
   <body>
