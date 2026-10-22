@@ -46,7 +46,7 @@ export const intro = {
 
 export const about = [
   "I'm a Computer Science student at Swinburne Vietnam who enjoys the server side of software: designing REST APIs, modelling data and building pipelines that turn raw data into decisions.",
-  "I've worked as an intern at Payoo (VietUnion), a payments company, and I'm currently writing a systematic literature review to sharpen my research skills. My goal is to grow from backend into a senior full-stack engineer who owns features end to end.",
+  "I've worked as an intern backend developer at Payoo (VietUnion), a payments company, and I'm currently writing a systematic literature review to sharpen my research skills. My goal is to grow from backend into a senior full-stack engineer who owns features end to end.",
 ];
 
 export const quickFacts = {
