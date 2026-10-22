@@ -1,45 +1,39 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { profile, sections } from "@/data/profile";
+import LineCta from "./LineCta";
 import SocialLinks from "./SocialLinks";
-import ThemeToggle from "./ThemeToggle";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const ResumeButton = () =>
   profile.resumeUrl ? (
-    <a
-      href={profile.resumeUrl}
-      download
-      className="inline-flex items-center justify-center gap-2 rounded-xl bg-inverse px-5 py-3 text-sm font-medium text-inverse-foreground transition-opacity hover:opacity-90"
-    >
-      <Download size={16} aria-hidden />
-      Download résumé
-    </a>
+    <LineCta href={profile.resumeUrl} download className="text-primary hover:text-foreground">
+      Résumé
+    </LineCta>
   ) : null;
 
 // Desktop: a sticky left column. Mobile: the profile card at the top of the page
 // (section navigation moves to MobileNav).
 const Sidebar = ({ active }: { active: string }) => (
-  <aside className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[280px] lg:shrink-0 lg:flex-col lg:justify-between lg:py-8">
-    <div className="tile flex flex-col gap-6 p-6 lg:bg-transparent lg:p-0">
+  <aside className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[300px] lg:shrink-0 lg:flex-col lg:justify-between lg:py-12">
+    <div className="tile flex flex-col gap-7 p-7 sidebar-card lg:bg-transparent lg:p-0">
       <div className="flex items-start justify-between gap-4">
-        <div
-          aria-hidden
-          className="flex h-16 w-16 items-center justify-center rounded-2xl bg-inverse text-lg font-semibold text-inverse-foreground"
-        >
-          {profile.initials}
-        </div>
-        <div className="lg:hidden">
-          <ThemeToggle />
-        </div>
+        <img
+          src={profile.avatar}
+          alt={`Portrait of ${profile.name}`}
+          width={96}
+          height={96}
+          className="h-24 w-24 object-cover ring-1 ring-primary/70 ring-offset-4 ring-offset-background"
+        />
+        <ThemeSwitcher className="lg:hidden" />
       </div>
 
       <div className="flex flex-col gap-2">
-        <p className="text-3xl font-bold tracking-tight">{profile.name}</p>
+        <p className="font-heading text-2xl font-semibold uppercase tracking-[0.04em]">{profile.name}</p>
         <p className="font-medium text-primary">{profile.role}</p>
       </div>
 
-      <p className="inline-flex items-center gap-2 self-start rounded-full border bg-card px-3 py-1.5 text-sm font-medium">
+      <p className="inline-flex items-center gap-2 self-start border bg-card/60 px-3 py-1.5 text-sm font-medium backdrop-blur">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60 motion-reduce:animate-none" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
@@ -53,7 +47,7 @@ const Sidebar = ({ active }: { active: string }) => (
       </div>
 
       <nav aria-label="Sections" className="hidden lg:block">
-        <ul className="flex flex-col gap-1 pt-4 font-mono text-xs uppercase tracking-[0.08em]">
+        <ul className="flex flex-col gap-1 pt-6 font-mono text-[11px] uppercase tracking-[0.2em]">
           {sections.map(({ id, label }) => {
             const isActive = active === id;
             return (
@@ -62,7 +56,7 @@ const Sidebar = ({ active }: { active: string }) => (
                   href={`#${id}`}
                   aria-current={isActive ? "true" : undefined}
                   className={cn(
-                    "group flex items-center gap-4 py-2.5 transition-colors",
+                    "group flex items-center gap-4 py-3 transition-colors",
                     isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                   )}
                 >
@@ -71,7 +65,7 @@ const Sidebar = ({ active }: { active: string }) => (
                     {isActive && (
                       <motion.span
                         layoutId="sidebar-indicator"
-                        className="absolute inset-y-0 left-0 w-12 bg-foreground"
+                        className="absolute inset-y-0 left-0 w-12 bg-primary"
                         transition={{ type: "spring", stiffness: 400, damping: 35 }}
                       />
                     )}
@@ -87,10 +81,11 @@ const Sidebar = ({ active }: { active: string }) => (
 
     <div className="hidden flex-col gap-4 lg:flex">
       <ResumeButton />
-      <div className="flex items-center justify-between">
-        <SocialLinks />
-        <ThemeToggle />
+      <div className="flex items-center justify-between gap-3">
+        <span className="eyebrow">Theme</span>
+        <ThemeSwitcher />
       </div>
+      <SocialLinks />
     </div>
   </aside>
 );

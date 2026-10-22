@@ -2,15 +2,14 @@
 <html lang="en">
   <head>
     <script>
-      (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();
+      (function(){var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'){document.documentElement.classList.add('dark')}})();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Le Thanh Nam — Backend &amp; Full-Stack Developer</title>
     <meta name="description" content="Portfolio of Le Thanh Nam, a Computer Science student at Swinburne Vietnam building backend services and full-stack web apps. Open to backend and full-stack internships." />
     <meta name="author" content="Le Thanh Nam" />
-    <meta name="theme-color" content="#ECEEF2" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0B0D12" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0C0917" />
 
     <meta property="og:title" content="Le Thanh Nam — Backend &amp; Full-Stack Developer" />
     <meta property="og:description" content="APIs, data systems and the web apps on top of them. Open to backend and full-stack internships." />
@@ -22,7 +21,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
 
   <body>

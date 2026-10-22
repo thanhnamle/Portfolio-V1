@@ -46,6 +46,11 @@ npm run dev        # http://localhost:8080
 
 Deployed on Vercel at the domain root. For a sub-path host such as GitHub Pages, build with `VITE_BASE_PATH=/Portfolio-V1/`.
 
+## Credits
+
+- Intro background photo by [Taylor Vick](https://unsplash.com/@tvick) on [Unsplash](https://unsplash.com/photos/cable-network-M5tzZtFCOfs) (Unsplash License).
+- Technology logos from [Simple Icons](https://simpleicons.org/).
+
 ---
 
 *Designed and developed by [Le Thanh Nam](https://github.com/thanhnamle).*

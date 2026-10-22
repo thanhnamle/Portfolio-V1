@@ -25,3 +25,15 @@ class IntersectionObserverStub {
 }
 
 Object.defineProperty(window, "IntersectionObserver", { writable: true, value: IntersectionObserverStub });
+
+// jsdom has no ResizeObserver either; used to route the stack diagram wires.
+class ResizeObserverStub {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
+Object.defineProperty(window, "ResizeObserver", { writable: true, value: ResizeObserverStub });
+
+// jsdom doesn't implement scrolling; App scrolls to top after the intro exits.
+Object.defineProperty(window, "scrollTo", { writable: true, value: () => {} });

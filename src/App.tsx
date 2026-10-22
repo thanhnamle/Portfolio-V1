@@ -1,38 +1,48 @@
-import { MotionConfig } from "framer-motion";
-import { sections } from "@/data/profile";
-import { useActiveSection } from "@/hooks/useActiveSection";
-import Sidebar from "@/components/Sidebar";
-import MobileNav from "@/components/MobileNav";
-import About from "@/components/sections/About";
-import Architecture from "@/components/sections/Architecture";
-import Experience from "@/components/sections/Experience";
-import Projects from "@/components/sections/Projects";
-import Contact from "@/components/sections/Contact";
+import { useCallback, useState } from "react";
+import { AnimatePresence, MotionConfig } from "framer-motion";
+import Fireflies from "@/components/Fireflies";
+import Loading from "@/components/Loading";
+import Intro from "@/components/Intro";
+import Portfolio from "@/components/Portfolio";
 
-const sectionIds = sections.map((s) => s.id);
+type Stage = "loading" | "intro" | "portfolio";
+
+const INTRO_SEEN_KEY = "intro-seen";
+
+// Loading → intro on a fresh visit; straight to the portfolio for deep links
+// (e.g. /#projects shared with a CV) or once the visitor has entered during this session.
+const initialStage = (): Stage => {
+  if (window.location.hash) return "portfolio";
+  try {
+    return sessionStorage.getItem(INTRO_SEEN_KEY) === "1" ? "portfolio" : "loading";
+  } catch {
+    return "loading";
+  }
+};
 
 const App = () => {
-  const active = useActiveSection(sectionIds);
+  const [stage, setStage] = useState(initialStage);
+
+  // Loading can report done more than once (timer, key, click); only the first moves on.
+  const finishLoading = useCallback(() => setStage((s) => (s === "loading" ? "intro" : s)), []);
+
+  const enter = () => {
+    try {
+      sessionStorage.setItem(INTRO_SEEN_KEY, "1");
+    } catch {
+      // Without storage the intro simply shows again on reload.
+    }
+    setStage("portfolio");
+  };
 
   return (
     <MotionConfig reducedMotion="user">
-      <a
-        href="#about"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-card focus:px-4 focus:py-3"
-      >
-        Skip to content
-      </a>
-      <div className="mx-auto max-w-[1360px] px-4 pt-4 sm:px-6 lg:flex lg:gap-10 lg:pt-0">
-        <Sidebar active={active} />
-        <MobileNav active={active} />
-        <main className="min-w-0 flex-1 lg:py-8">
-          <About />
-          <Architecture />
-          <Experience />
-          <Projects />
-          <Contact />
-        </main>
-      </div>
+      <Fireflies />
+      <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
+        {stage === "loading" && <Loading key="loading" onDone={finishLoading} />}
+        {stage === "intro" && <Intro key="intro" onEnter={enter} />}
+        {stage === "portfolio" && <Portfolio key="portfolio" />}
+      </AnimatePresence>
     </MotionConfig>
   );
 };

@@ -17,7 +17,7 @@ const SocialLinks = ({ className }: { className?: string }) => (
           target={href.startsWith("http") ? "_blank" : undefined}
           rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
           aria-label={label}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border bg-card text-foreground transition-colors hover:bg-muted hover:text-primary"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border bg-card/60 text-foreground backdrop-blur transition-colors hover:bg-muted hover:text-primary"
         >
           <Icon size={18} aria-hidden />
         </a>
