@@ -35,5 +35,6 @@ class ResizeObserverStub {
 
 Object.defineProperty(window, "ResizeObserver", { writable: true, value: ResizeObserverStub });
 
-// jsdom doesn't implement scrolling; App scrolls to top after the intro exits.
+// jsdom doesn't implement scrolling; the portfolio scrolls to the top or to a hashed section on open.
 Object.defineProperty(window, "scrollTo", { writable: true, value: () => {} });
+Element.prototype.scrollIntoView = function scrollIntoView() {};

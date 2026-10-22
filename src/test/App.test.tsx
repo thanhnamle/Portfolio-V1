@@ -1,4 +1,4 @@
-import { beforeEach, describe, it, expect } from "vitest";
+import { beforeEach, describe, it, expect, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "@/App";
 import { intro, profile, projects, sections } from "@/data/profile";
@@ -57,19 +57,24 @@ describe("Intro", () => {
     expect(await screen.findByRole("heading", { level: 1, name: /Hi, I'm Nam/ })).toBeInTheDocument();
   });
 
-  it("is skipped for deep links", () => {
+  it("still plays loading and intro for a link to a section, then opens on that section", async () => {
     window.history.replaceState(null, "", "/#projects");
+    const scrollIntoView = vi.spyOn(Element.prototype, "scrollIntoView");
     render(<App />);
-    expect(screen.queryByRole("status", { name: /Loading/ })).not.toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Enter portfolio" })).not.toBeInTheDocument();
-    expect(document.getElementById("projects")).toBeInTheDocument();
+    expect(screen.getByRole("status", { name: /Loading/ })).toBeInTheDocument();
+
+    fireEvent.keyDown(window, { key: "Escape" });
+    fireEvent.click(await screen.findByRole("button", { name: "Enter portfolio" }));
+    await screen.findByRole("heading", { level: 1, name: /Hi, I'm Nam/ });
+    expect(scrollIntoView.mock.contexts).toContain(document.getElementById("projects"));
+    scrollIntoView.mockRestore();
   });
 
-  it("is skipped after entering once in the same session", async () => {
+  it("plays loading and intro again after a reload", async () => {
     const { unmount } = await renderPortfolio();
     unmount();
     render(<App />);
-    expect(screen.queryByRole("button", { name: "Enter portfolio" })).not.toBeInTheDocument();
+    expect(screen.getByRole("status", { name: /Loading/ })).toBeInTheDocument();
   });
 });
 

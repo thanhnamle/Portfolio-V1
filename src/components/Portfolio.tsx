@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { sections } from "@/data/profile";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -15,6 +16,13 @@ const sectionIds = sections.map((s) => s.id);
 // The main one-page portfolio, shown after the intro, over the same server-room backdrop.
 const Portfolio = () => {
   const active = useActiveSection(sectionIds);
+
+  // Opening after the intro: jump to the section named in the URL hash (e.g. /#projects), else the top.
+  useEffect(() => {
+    const target = window.location.hash && document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView();
+    else window.scrollTo(0, 0);
+  }, []);
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
