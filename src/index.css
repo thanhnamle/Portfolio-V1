@@ -1,138 +1,210 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * One cinematic fantasy style, matching the intro, in two lights:
+ *   light — golden hour: warm amber glow over the server-room backdrop.
+ *   dark  — midnight: violet night, starlight and gold.
+ * Both sit on the same dark photo, so text is always parchment on glass.
+ */
 @layer base {
   :root {
-    --background: 200 30% 97%;
-    --foreground: 209 61% 16%;
+    --font-heading: "Cinzel", Georgia, serif;
 
-    --card: 200 30% 100%;
-    --card-foreground: 209 61% 16%;
+    --background: 28 28% 5%;
+    --foreground: 40 45% 93%;
 
-    --popover: 200 30% 100%;
-    --popover-foreground: 209 61% 16%;
+    --card: 30 22% 9%;
+    --card-foreground: 40 45% 93%;
 
-    --primary: 205 82% 61%;
-    --primary-foreground: 200 30% 99%;
+    --muted: 32 18% 15%;
+    --muted-foreground: 36 16% 72%;
 
-    --secondary: 200 20% 92%;
-    --secondary-foreground: 209 61% 16%;
+    --primary: 40 82% 62%;
+    --primary-foreground: 28 35% 8%;
 
-    --muted: 200 20% 93%;
-    --muted-foreground: 207 13% 45%;
+    --inverse: 40 45% 92%;
+    --inverse-foreground: 28 35% 8%;
+    --inverse-muted: 32 12% 36%;
 
-    --accent: 205 82% 61%;
-    --accent-foreground: 200 30% 99%;
+    --success: 152 55% 52%;
+    --border: 38 35% 70% / 0.16;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    /* Gold motes, gilded glass plates and the backdrop's colour cast. */
+    --mote: 40 85% 60%;
+    --tile-edge: 40 60% 65% / 0.18;
+    --tile-shadow: 20 60% 2% / 0.85;
+    --tile-sheen: 0 0% 100% / 0.035;
+    --cast: 36 85% 55% / 0.14;
 
-    --border: 200 20% 88%;
-    --input: 200 20% 88%;
-    --ring: 205 82% 61%;
-
-    --radius: 0.75rem;
-
-    --splash-bg: 209 61% 12%;
-    --splash-foreground: 200 30% 96%;
-    --section-alt: 200 25% 94%;
-    --nav-blur: rgba(247, 250, 252, 0.82);
-    --card-shadow: 0 2px 20px -4px rgba(9, 64, 103, 0.08);
-    --card-hover-shadow: 0 8px 40px -8px rgba(9, 64, 103, 0.14);
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Chart plate (stack diagram, intro, dialogs): warm umber and gold. */
+    --bp: 28 30% 7%;
+    --bp-raised: 30 32% 11%;
+    --bp-grid: 30 25% 13%;
+    --bp-line: 36 25% 30%;
+    --bp-text: 40 45% 92%;
+    --bp-muted: 36 16% 72%;
+    --bp-accent: 40 85% 64%;
   }
 
   .dark {
-    --background: 210 25% 9%;
-    --foreground: 200 20% 88%;
+    --background: 252 42% 5%;
+    --foreground: 40 45% 92%;
 
-    --card: 210 22% 12%;
-    --card-foreground: 200 20% 88%;
+    --card: 256 36% 10%;
+    --card-foreground: 40 45% 92%;
 
-    --popover: 210 22% 12%;
-    --popover-foreground: 200 20% 88%;
+    --muted: 256 28% 16%;
+    --muted-foreground: 256 16% 74%;
 
-    --primary: 205 75% 55%;
-    --primary-foreground: 210 25% 7%;
+    --primary: 42 72% 64%;
+    --primary-foreground: 252 42% 8%;
 
-    --secondary: 210 18% 17%;
-    --secondary-foreground: 200 20% 80%;
+    --inverse: 40 42% 88%;
+    --inverse-foreground: 252 42% 10%;
+    --inverse-muted: 256 18% 34%;
 
-    --muted: 210 18% 15%;
-    --muted-foreground: 200 15% 52%;
+    --success: 152 55% 56%;
+    --border: 262 40% 75% / 0.14;
 
-    --accent: 205 65% 50%;
-    --accent-foreground: 210 25% 7%;
+    --mote: 42 72% 64%;
+    --tile-edge: 42 60% 65% / 0.16;
+    --tile-shadow: 268 80% 3% / 0.9;
+    --tile-sheen: 0 0% 100% / 0.04;
+    --cast: 268 60% 35% / 0.22;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 210 18% 18%;
-    --input: 210 18% 18%;
-    --ring: 205 75% 55%;
-
-    --splash-bg: 210 30% 5%;
-    --splash-foreground: 200 20% 90%;
-    --section-alt: 210 22% 11%;
-    --nav-blur: rgba(16, 20, 26, 0.82);
-    --card-shadow: 0 2px 20px -4px rgba(0, 0, 0, 0.3);
-    --card-hover-shadow: 0 8px 40px -8px rgba(0, 0, 0, 0.4);
-
-    --sidebar-background: 210 25% 9%;
-    --sidebar-foreground: 200 15% 80%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 210 25% 9%;
-    --sidebar-accent: 210 18% 15%;
-    --sidebar-accent-foreground: 200 15% 80%;
-    --sidebar-border: 210 18% 18%;
-    --sidebar-ring: 205 75% 55%;
+    --bp: 258 45% 11%;
+    --bp-raised: 262 45% 16%;
+    --bp-grid: 258 35% 17%;
+    --bp-line: 262 26% 38%;
+    --bp-text: 40 45% 90%;
+    --bp-muted: 256 18% 74%;
+    --bp-accent: 42 72% 66%;
   }
 }
 
 @layer base {
+  :root {
+    color-scheme: dark;
+  }
+
   * {
     @apply border-border;
-    transition-property: color, background-color, border-color, box-shadow;
-    transition-duration: 0.4s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-/* Grain texture overlay */
-.grain-overlay::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.02;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
+@layer components {
+  /* Glass plate over the backdrop, with a thin gilded edge. Colour utilities (bg-primary…) still win. */
+  .tile {
+    @apply rounded-tile text-card-foreground;
+    background-color: hsl(var(--card) / 0.62);
+    background-image: linear-gradient(180deg, hsl(var(--tile-sheen)), transparent 45%);
+    backdrop-filter: blur(12px) saturate(1.1);
+    box-shadow:
+      inset 0 0 0 1px hsl(var(--tile-edge)),
+      0 30px 60px -30px hsl(var(--tile-shadow));
+  }
+
+  /* Small uppercase label, spaced like the intro's mono captions. */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-primary/80;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* ---------- Ambience ---------- */
+
+/* Midnight: two layers of stars over the backdrop, under content. */
+.dark body::before,
+.dark body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.dark body::before {
+  background-image:
+    radial-gradient(1px 1px at 24px 38px, hsl(40 80% 95% / 0.9), transparent),
+    radial-gradient(1px 1px at 132px 92px, hsl(0 0% 100% / 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 200px 160px, hsl(42 90% 80% / 0.9), transparent),
+    radial-gradient(1px 1px at 70px 210px, hsl(0 0% 100% / 0.6), transparent),
+    radial-gradient(1px 1px at 250px 40px, hsl(220 90% 90% / 0.7), transparent);
+  background-size: 280px 260px;
+  opacity: 0.6;
+}
+
+.dark body::after {
+  background-image:
+    radial-gradient(2px 2px at 90px 120px, hsl(42 90% 82% / 0.9), transparent),
+    radial-gradient(1.5px 1.5px at 330px 60px, hsl(0 0% 100% / 0.8), transparent),
+    radial-gradient(2px 2px at 250px 300px, hsl(270 90% 88% / 0.8), transparent);
+  background-size: 420px 380px;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+/*
+ * Tint over the intro photo: always darkest bottom-left where the headline sits,
+ * with the theme's colour cast on top.
+ */
+.hero-tint {
+  background:
+    linear-gradient(0deg, hsl(256 40% 5% / 0.92) 0%, hsl(256 40% 5% / 0.55) 38%, transparent 70%),
+    linear-gradient(90deg, hsl(256 40% 6% / 0.8) 0%, hsl(256 40% 6% / 0.35) 50%, transparent 85%),
+    radial-gradient(120% 90% at 50% 40%, transparent 55%, hsl(256 40% 4% / 0.7) 100%),
+    linear-gradient(hsl(var(--cast)), hsl(var(--cast)));
+}
+
+/* Deeper tint for the same photo behind the main page, so long-form content stays readable. */
+.backdrop-tint {
+  background:
+    linear-gradient(hsl(var(--background) / 0.7), hsl(var(--background) / 0.86)),
+    radial-gradient(110% 80% at 50% 30%, transparent 40%, hsl(var(--background) / 0.85) 100%),
+    linear-gradient(hsl(var(--cast)), hsl(var(--cast)));
+}
+
+/* On desktop the sidebar card dissolves into the page, so drop the glass plate there. */
+@media (min-width: 1024px) {
+  .tile.sidebar-card {
+    background-color: transparent;
+    background-image: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
+
+.bg-primary {
+  box-shadow: 0 0 28px -6px hsl(var(--primary) / 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dark body::after {
+    animation: none;
   }
 }

@@ -2,96 +2,95 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
-  prefix: "",
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       fontFamily: {
-        sans: ["Poppins", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: ["Geist", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["'Geist Mono'", "ui-monospace", "SFMono-Regular", "monospace"],
+        // Cinzel display face for headings (see --font-heading in index.css).
+        heading: ["var(--font-heading)"],
       },
       colors: {
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
         },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        splash: {
-          DEFAULT: "hsl(var(--splash-bg))",
-          foreground: "hsl(var(--splash-foreground))",
+        inverse: {
+          DEFAULT: "hsl(var(--inverse))",
+          foreground: "hsl(var(--inverse-foreground))",
+          muted: "hsl(var(--inverse-muted))",
         },
-        "section-alt": "hsl(var(--section-alt))",
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        success: "hsl(var(--success))",
+        // Arcane chart plate used by the stack diagram, terminal and dialogs.
+        bp: {
+          DEFAULT: "hsl(var(--bp))",
+          raised: "hsl(var(--bp-raised))",
+          line: "hsl(var(--bp-line))",
+          text: "hsl(var(--bp-text))",
+          muted: "hsl(var(--bp-muted))",
+          accent: "hsl(var(--bp-accent))",
         },
       },
+      // Squared-off plates to match the intro's cinematic look.
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        tile: "0.375rem",
+        xl: "0.375rem",
+        "2xl": "0.5rem",
+        "3xl": "0.5rem",
+      },
+      // `bg-blueprint` registers both the grid lines and their spacing.
+      backgroundImage: {
+        blueprint:
+          "linear-gradient(hsl(var(--bp-grid)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--bp-grid)) 1px, transparent 1px)",
+        "flow-x": "linear-gradient(to right, hsl(var(--bp-accent)) 50%, transparent 0)",
+        "flow-y": "linear-gradient(to bottom, hsl(var(--bp-accent)) 50%, transparent 0)",
+      },
+      backgroundSize: {
+        blueprint: "28px 28px",
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        // Marching dashes on the stacked (mobile) diagram connectors.
+        "flow-y": { to: { backgroundPosition: "0 16px" } },
+        // Dashes travelling along the curved SVG wires (dash + gap = 12, two cycles).
+        dash: { to: { strokeDashoffset: "-24" } },
+        // Ambience: twinkling stars and drifting motes.
+        twinkle: { "0%, 100%": { opacity: "0.35" }, "50%": { opacity: "1" } },
+        drift: {
+          "0%": { transform: "translate(0, 0)", opacity: "0" },
+          "15%, 85%": { opacity: "1" },
+          "100%": { transform: "translate(var(--dx), var(--dy))", opacity: "0" },
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+        // Intro hero: light streaks racing across, a slow light sweep, and pulse rings on network nodes.
+        streak: {
+          "0%": { transform: "translateX(-25vw)", opacity: "0" },
+          "12%, 80%": { opacity: "1" },
+          "100%": { transform: "translateX(125vw)", opacity: "0" },
         },
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(30px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
+        sweep: { "0%": { transform: "translateX(-60%)" }, "100%": { transform: "translateX(180%)" } },
+        ring: { "0%": { transform: "scale(1)", opacity: "0.8" }, "100%": { transform: "scale(3.2)", opacity: "0" } },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-up": "fade-up 0.8s ease-out forwards",
+        "flow-y": "flow-y 0.8s linear infinite",
+        dash: "dash 1.2s linear infinite",
+        twinkle: "twinkle 5s ease-in-out infinite",
+        drift: "drift var(--duration) ease-in-out infinite",
+        streak: "streak var(--duration) cubic-bezier(0.5, 0, 0.75, 0) infinite",
+        sweep: "sweep 11s ease-in-out infinite",
+        ring: "ring 2.6s ease-out infinite",
       },
     },
   },
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } satisfies Config;

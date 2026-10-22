@@ -13,3 +13,28 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: () => {},
   }),
 });
+
+// jsdom has no IntersectionObserver; used by useActiveSection and framer-motion's whileInView.
+class IntersectionObserverStub {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+  takeRecords() {
+    return [];
+  }
+}
+
+Object.defineProperty(window, "IntersectionObserver", { writable: true, value: IntersectionObserverStub });
+
+// jsdom has no ResizeObserver either; used to route the stack diagram wires.
+class ResizeObserverStub {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
+Object.defineProperty(window, "ResizeObserver", { writable: true, value: ResizeObserverStub });
+
+// jsdom doesn't implement scrolling; the portfolio scrolls to the top or to a hashed section on open.
+Object.defineProperty(window, "scrollTo", { writable: true, value: () => {} });
+Element.prototype.scrollIntoView = function scrollIntoView() {};
