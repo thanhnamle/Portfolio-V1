@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { intro, profile } from "@/data/profile";
 import { SIGNATURE_VIEWBOX, signaturePath } from "@/data/signature";
-import heroSmall from "@/assets/hero-servers-1200.webp";
-import heroLarge from "@/assets/hero-servers-1920.webp";
+import { introPhoto } from "@/data/images";
 import HeroEffects from "./HeroEffects";
 import LineCta from "./LineCta";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -25,7 +24,6 @@ const topLinks = [
 // Cinematic landing: a static data-centre photo with animated light around it, a big question
 // headline bottom-left and "Enter portfolio" bottom-right. Scrolling, swiping up, ArrowDown or
 // Enter also enters. Exits by zooming through, like stepping into a portal.
-// Photo: Taylor Vick on Unsplash (https://unsplash.com/photos/cable-network-M5tzZtFCOfs).
 const Intro = ({ onEnter }: { onEnter: () => void }) => {
   // "Scroll to explore": a downward wheel, an upward swipe, ArrowDown/PageDown, or Enter while
   // nothing else has focus (so Enter on a link or the theme switch keeps its own meaning).
@@ -63,8 +61,8 @@ const Intro = ({ onEnter }: { onEnter: () => void }) => {
     >
       {/* Static background photo; settles in once on load. */}
       <motion.img
-        src={heroLarge}
-        srcSet={`${heroSmall} 1200w, ${heroLarge} 1920w`}
+        src={introPhoto.src}
+        srcSet={introPhoto.srcSet}
         sizes="100vw"
         alt=""
         aria-hidden

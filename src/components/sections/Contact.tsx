@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { profile } from "@/data/profile";
-import heroSmall from "@/assets/hero-servers-1200.webp";
-import heroLarge from "@/assets/hero-servers-1920.webp";
+import { creditsUrl } from "@/data/images";
 import LineCta from "../LineCta";
 import Reveal from "../Reveal";
 
-// Closing call to action, styled as a small reprise of the intro hero.
+// Closing call to action, styled as a small reprise of the intro hero. The panel is nearly clear glass
+// so the section's backdrop photo (Earth at night) shows through behind the headline.
 const Contact = () => {
   const [copied, setCopied] = useState(false);
 
@@ -22,17 +22,8 @@ const Contact = () => {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="pt-20 sm:pt-24">
-      <Reveal className="tile relative isolate overflow-hidden p-8 text-bp-text sm:p-14 lg:p-16">
-        <img
-          src={heroLarge}
-          srcSet={`${heroSmall} 1200w, ${heroLarge} 1920w`}
-          sizes="(min-width: 1024px) 70vw, 100vw"
-          alt=""
-          aria-hidden
-          loading="lazy"
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-[62%_50%]"
-        />
-        <div aria-hidden className="hero-tint absolute inset-0 -z-10" />
+      <Reveal className="tile relative isolate overflow-hidden bg-card/10 p-8 text-bp-text [backdrop-filter:none] sm:p-14 lg:p-16">
+        <div aria-hidden className="hero-tint absolute inset-0 -z-10 opacity-80" />
 
         <span className="eyebrow">05 — Contact</span>
         <h2
@@ -74,6 +65,9 @@ const Contact = () => {
 
       <footer className="flex flex-wrap justify-between gap-2 px-1 py-10 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
         <span>© {new Date().getFullYear()} {profile.name}</span>
+        <a href={creditsUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-primary">
+          Photo credits ↗
+        </a>
         <span>Built with React, Vite &amp; Tailwind CSS</span>
       </footer>
     </section>

@@ -14,7 +14,7 @@ const Experience = () => (
         {timeline.map((entry) => (
           <li
             key={`${entry.org}-${entry.title}`}
-            className="relative flex gap-5 rounded-2xl p-6 transition-colors hover:bg-muted sm:gap-7"
+            className="group relative flex gap-5 rounded-2xl p-6 transition-colors hover:bg-muted sm:gap-7"
           >
             <OrgLogo logo={entry.logo} fallback={<BookOpen size={22} aria-hidden />} className="relative" />
             <div className="flex min-w-0 flex-1 flex-col gap-2">
@@ -54,6 +54,23 @@ const Experience = () => (
                 </ul>
               )}
             </div>
+            {entry.photo && (
+              <figure className="relative hidden w-44 shrink-0 self-start overflow-hidden border border-[hsl(var(--tile-edge))] md:block lg:w-52">
+                <img
+                  src={entry.photo.src}
+                  alt={entry.photo.alt}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ objectPosition: entry.photo.position }}
+                  className="aspect-[4/3] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-100 motion-reduce:transition-none"
+                />
+                {entry.photo.caption && (
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent px-2 pb-1.5 pt-5 font-mono text-[9px] uppercase tracking-[0.14em] text-foreground/80">
+                    {entry.photo.caption}
+                  </figcaption>
+                )}
+              </figure>
+            )}
           </li>
         ))}
       </ol>

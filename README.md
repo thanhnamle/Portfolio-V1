@@ -48,7 +48,16 @@ Deployed on Vercel at the domain root. For a sub-path host such as GitHub Pages,
 
 ## Credits
 
-- Intro background photo by [Taylor Vick](https://unsplash.com/@tvick) on [Unsplash](https://unsplash.com/photos/cable-network-M5tzZtFCOfs) (Unsplash License).
+- Photography from [Unsplash](https://unsplash.com) (Unsplash License); photos of Swinburne Vietnam, Swinburne's Advanced Technologies Centre and the Payoo office were supplied by the site owner. Every photo and its credit is listed in [`src/data/images.ts`](src/data/images.ts):
+  - Intro — [Taylor Vick](https://unsplash.com/photos/cable-network-M5tzZtFCOfs)
+  - About — [Mohammad Rahmani](https://unsplash.com/photos/man-in-black-long-sleeve-shirt-using-computer-_Fx34KeqIEw)
+  - Stack — [Alexandre Debiève](https://unsplash.com/photos/FO7JIlwjOtU)
+  - Experience — [Tron Le](https://unsplash.com/photos/city-building-photo-eilpDNi_pV4)
+  - Projects — [Chris Ried](https://unsplash.com/photos/a-computer-screen-with-a-bunch-of-code-on-it-ieic5Tq8YMk)
+  - Contact — [NASA](https://unsplash.com/photos/photo-of-outer-space-Q1p7bh3SHj8)
+  - Location tile — [CreateTravel.tv](https://unsplash.com/photos/aerial-view-of-city-during-night-time-dtu842bEZuw)
+  - Research tile — [Jez Timms](https://unsplash.com/photos/turned-on-desk-lamp-beside-pile-of-books-8muUTAmcWU4)
+  - Timeline, research (illustrative) — [enrico bet](https://unsplash.com/photos/wooden-ladder-in-trinity-college-library-lc7xcWebECc)
 - Technology logos from [Simple Icons](https://simpleicons.org/).
 
 ---

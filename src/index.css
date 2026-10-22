@@ -184,7 +184,7 @@
 /* Deeper tint for the same photo behind the main page, so long-form content stays readable. */
 .backdrop-tint {
   background:
-    linear-gradient(hsl(var(--background) / 0.78), hsl(var(--background) / 0.9)),
+    linear-gradient(hsl(var(--background) / 0.7), hsl(var(--background) / 0.86)),
     radial-gradient(110% 80% at 50% 30%, transparent 40%, hsl(var(--background) / 0.85) 100%),
     linear-gradient(hsl(var(--cast)), hsl(var(--cast)));
 }

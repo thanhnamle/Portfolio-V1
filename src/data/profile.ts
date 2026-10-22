@@ -7,6 +7,7 @@ import projectAirbnb from "@/assets/project-airbnb.webp";
 import logoSwinburne from "@/assets/logo-swinburne.webp";
 import logoPayoo from "@/assets/logo-payoo.webp";
 import avatar from "@/assets/avatar.webp";
+import { timelinePhotos, type Photo } from "./images";
 
 export type Logo = {
   src: string;
@@ -51,14 +52,14 @@ export const about = [
 export const quickFacts = {
   education: {
     school: "Swinburne Vietnam",
-    degree: "Computer Science",
+    degree: "Computer Science - Software Development",
     graduation: "Expected Jul 2027",
   },
   // TODO: add the year and your official intern title.
   internship: {
     company: "Payoo (VietUnion)",
-    title: "Intern",
-    period: "Aug – Nov",
+    title: "Intern Backend Developer",
+    period: "May – Nov 2026",
   },
   research: "Writing a Systematic Literature Review (SLR)",
   path: ["Backend", "Full-Stack", "Senior Full-Stack"],
@@ -73,6 +74,7 @@ export type TimelineEntry = {
   current?: boolean;
   logo?: Logo;
   url?: string;
+  photo?: Photo;
 };
 
 export const timeline: TimelineEntry[] = [
@@ -84,10 +86,10 @@ export const timeline: TimelineEntry[] = [
     description: "Planning, screening and synthesising published studies in a structured SLR to build rigorous research habits.",
     tags: ["Research", "Academic writing"],
     current: true,
+    photo: timelinePhotos.research,
   },
   {
-    // TODO: add the year, e.g. "Aug – Nov 2025".
-    period: "Aug – Nov",
+    period: "May – Nov 2026",
     title: "Intern",
     org: "Payoo (VietUnion)",
     // TODO: one or two lines on what you built and the result.
@@ -95,15 +97,17 @@ export const timeline: TimelineEntry[] = [
     tags: [],
     logo: logos.payoo,
     url: "https://payoo.vn",
+    photo: timelinePhotos.payoo,
   },
   {
-    period: "– Jul 2027",
+    period: "Sep 2023 – Jul 2027",
     title: "Computer Science",
     org: "Swinburne Vietnam",
     description: "Expected graduation July 2027.",
     tags: ["Data structures", "Databases", "AI"],
     logo: logos.swinburne,
     url: "https://swinburne-vn.edu.vn",
+    photo: timelinePhotos.swinburne,
   },
 ];
 
